@@ -12,6 +12,7 @@ function agregarNumero(numero) {
     operandoActual += numero;
     // Actualiza el valor mostrado en la pantalla de la calculadora
     actualizarPantalla();
+    mostrar_valores_en_consola();
 }
 
 /**
@@ -27,6 +28,7 @@ function elegirOperacion(op) {
     operacion = op;
     operandoPrevio = operandoActual;
     operandoActual = '';
+    mostrar_valores_en_consola();
 }
 
 /**
@@ -38,7 +40,7 @@ function calcular() {
     const actual = parseFloat(operandoActual); // Convierte el operando actual a número
     // Si alguno de los operandos no es un número, no hace nada
     if (isNaN(previo) || isNaN(actual)) return;
-    
+
     switch (operacion) { // Realiza la operación basada en el tipo de operador
         case '+':
             calculo = previo + actual;
@@ -56,6 +58,7 @@ function calcular() {
     operandoPrevio = '';
     // Actualiza la pantalla con el resultado
     actualizarPantalla();
+    mostrar_valores_en_consola();
 }
 
 /**
@@ -76,4 +79,11 @@ function reiniciar() {
     operacion = null;
     // Restablece la pantalla
     actualizarPantalla();
+}
+
+function mostrar_valores_en_consola(){
+    console.log("operandoActual "+operandoActual);
+    console.log("operandoPrevio "+operandoPrevio);
+    console.log("operacion "+operacion);
+
 }
